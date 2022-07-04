@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Border = styled.div`
   border: 0.5px solid black;
-  width: 350px;
-  height: 450px;
+  width: 750px;
+  height: 300px;
   margin: 0 150px;
 
   .image {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .square {
@@ -17,7 +17,7 @@ export const Border = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 500px;
   }
 
   p {
@@ -26,7 +26,7 @@ export const Border = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin: 25px 0;
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;

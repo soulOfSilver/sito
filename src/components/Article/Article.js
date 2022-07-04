@@ -1,24 +1,58 @@
-import { useSearchParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { fb } from "../../firebase";
+import HTMLReactParser from "html-react-parser";
+import Menu from "../Menu/Menu";
+import { Wrapper } from "./style";
 
 const Article = () => {
-  const [articleID, setArticleID] = useSearchParams();
-  articleID.get("article");
+  const { id } = useParams();
 
-  useEffect(async () => {
+  const [author, setAuthor] = useState("");
+  const [data, setData] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
+  const [title, setTitle] = useState("");
+
+  const dataRetrieve = async () => {
     const db = fb.firestore();
-    const docRef = doc(db, "articles", articleID);
-    const docSnap = await getDoc(docRef);
+    const articleRef = db.collection("articles");
+    const snapshot = await articleRef.where("id", "==", id).get();
 
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
+    if (snapshot.empty) {
+      console.log("Errore durante il ripescaggio delle infroamzioni");
+      return;
     } else {
-      console.log("No such document!");
+      snapshot.forEach((article) => {
+        console.log(article.data());
+        setAuthor(article.data().autore);
+        setData(article.data().testo);
+        setThumbnail(article.data().thumbnail);
+        setTitle(article.data().titolo);
+      });
     }
+  };
+
+  useEffect(() => {
+    dataRetrieve();
     return;
   }, []);
+
+  return (
+    <Wrapper>
+      <h1>A boring Site</h1>
+      <Menu />
+      <div className="body">
+        <div className="internal-body">
+          <h2>{title}</h2>
+          <h4>{author}</h4>
+          <div className="thumbnail">
+            <img src={thumbnail} alt="" className="big-image" />
+          </div>
+          <div>{HTMLReactParser(data)}</div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 };
 
 export default Article;

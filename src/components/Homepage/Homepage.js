@@ -2,7 +2,7 @@ import { Wrapper, Intro } from "./style";
 import "../../standardStyle.css";
 import { useState, useEffect } from "react";
 import { fb } from "../../firebase";
-import Menu from "./HomepageMenu/Menu";
+import Menu from "../Menu/Menu";
 import SquareVisualizer from "./SquareVisualizer/SquareVisualizer";
 
 const Homepage = () => {
