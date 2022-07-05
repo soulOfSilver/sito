@@ -1,32 +1,32 @@
 import styled from "styled-components";
 
-export const Border = styled.div`
-  border: 0.5px solid black;
-  width: 750px;
-  height: 300px;
-  margin: 0 150px;
-
-  .image {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .square {
-    margin: 5px;
-  }
-
-  img {
-    width: 500px;
-  }
-
-  p {
-    font-size: 13px;
-  }
-`;
-
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  background-color: #f8f9d7;
+
+  .article-element {
+    border: 0.5px solid black;
+    display: flex;
+    padding: 5px;
+    margin: 15px 20% 15px 20%;
+  }
+
+  .article-summary {
+    margin-left: 50px;
+    background-color: #c4d7e0;
+  }
+
+  .tiny-text {
+    p {
+      font-size: 10px;
+    }
+  }
+
+  .no-format-link {
+    text-decoration: none;
+    color: black;
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+    }
+  }
 `;

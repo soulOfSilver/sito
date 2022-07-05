@@ -1,47 +1,45 @@
-import { Border, Wrapper } from "./style";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Wrapper } from "./style";
 import { Link } from "react-router-dom";
 
 const SquareVisualizer = ({ data }) => {
-  const navigate = useNavigate();
+  const [articles, setArticles] = useState([]);
 
-  const handleClick = (e) => {
-    navigate(`/articles/${e.target.id}`);
-  };
+  useEffect(() => {
+    if (data) {
+      var tmp = [];
+      for (var i = 0; i < 5; i++) {
+        if (data[i]) {
+          tmp.push(data[i]);
+        }
+      }
+      setArticles(tmp);
+    } else {
+      setArticles([]);
+    }
+    return;
+  }, [data]);
 
   return (
     <>
       <Wrapper>
-        {data.map((thumbnail) => {
+        {articles.map((article) => {
+          if (!article) {
+            return;
+          }
           return (
-            <Border>
-              <div className="square">
-                <div className="image">
-                  <img src={thumbnail.thumbnail} alt="" />
+            <div className="article-element" key={article.thumbnail}>
+              <img src={article.thumbnail} alt="" width="300px" />
+              <div className="article-summary">
+                <Link className="no-format-link" to={`/articles/${article.id}`}>
+                  <h3>{article.titolo}</h3>
+                </Link>
+                <div className="tiny-text">
+                  <p>{article.autore}</p>
+                  <p>{article.sommario}</p>
                 </div>
               </div>
-              <div className="container">
-                <Link to={`articles/${thumbnail.id}`}>
-                  <h3>{thumbnail.titolo}</h3>
-                </Link>
-                <p>{thumbnail.autore} &#8226;</p>
-              </div>
-            </Border>
-
-            // <>
-            //   <Grid item xs={4} key={JSON.stringify(thumbnail)}>
-            //     <div className="container">
-            //       <Border>
-            //         <div className="square">
-            //           <div className="image">
-            //             <img src={thumbnail.thumbnail} alt="fuck" />
-            //           </div>
-            //
-            //         </div>
-            //       </Border>
-            //     </div>
-            //   </Grid>
-            // </>
+            </div>
           );
         })}
       </Wrapper>
