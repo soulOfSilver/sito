@@ -19,15 +19,15 @@ const Article = () => {
     const snapshot = await articleRef.where("id", "==", id).get();
 
     if (snapshot.empty) {
-      console.log("Errore durante il ripescaggio delle infroamzioni");
+      console.log("Errore durante il ripescaggio delle informazioni");
       return;
     } else {
       snapshot.forEach((article) => {
         console.log(article.data());
-        setAuthor(article.data().autore);
-        setData(article.data().testo);
+        setAuthor(article.data().author);
+        setData(article.data().body);
         setThumbnail(article.data().thumbnail);
-        setTitle(article.data().titolo);
+        setTitle(article.data().title);
       });
     }
   };

@@ -8,9 +8,14 @@ const SquareVisualizer = ({ data }) => {
   useEffect(() => {
     if (data) {
       var tmp = [];
+      var j = data.length;
       for (var i = 0; i < 5; i++) {
-        if (data[i]) {
-          tmp.push(data[i]);
+        if (data[j]) {
+          tmp.push(data[j]);
+        }
+        j--;
+        if (j < 0) {
+          break;
         }
       }
       setArticles(tmp);
@@ -29,14 +34,16 @@ const SquareVisualizer = ({ data }) => {
           }
           return (
             <div className="article-element" key={article.thumbnail}>
-              <img src={article.thumbnail} alt="" width="300px" />
+              <img src={article.thumbnail} alt="" width="350px" />
               <div className="article-summary">
                 <Link className="no-format-link" to={`/articles/${article.id}`}>
-                  <h3>{article.titolo}</h3>
+                  <h3>{article.title}</h3>
                 </Link>
                 <div className="tiny-text">
-                  <p>{article.autore}</p>
-                  <p>{article.sommario}</p>
+                  <p>
+                    {article.author} &#x2022; {article.read_time} min
+                  </p>
+                  <p>{article.abstract}</p>
                 </div>
               </div>
             </div>
