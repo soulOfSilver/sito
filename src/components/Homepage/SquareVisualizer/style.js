@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background-color: #f8f9d7;
+  margin-bottom: 100px;
 
   .article-element {
     border: 0.5px solid black;
@@ -21,12 +22,8 @@ export const Wrapper = styled.div`
     }
   }
 
-  .no-format-link {
-    text-decoration: none;
-    color: black;
-    h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-    }
+  .fat-link {
+    margin-left: 4px;
+    font-weight: 500;
   }
 `;

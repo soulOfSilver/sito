@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fb } from "../../firebase";
 import HTMLReactParser from "html-react-parser";
-import Menu from "../Menu/Menu";
 import { Wrapper } from "./style";
+import Header from "../Header/Header";
 
 const Article = () => {
   const { id } = useParams();
@@ -39,8 +39,7 @@ const Article = () => {
 
   return (
     <Wrapper>
-      <h1>A boring Site</h1>
-      <Menu />
+      <Header />
       <div className="body">
         <div className="internal-body">
           <h2>{title}</h2>

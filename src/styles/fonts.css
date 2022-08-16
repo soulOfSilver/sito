@@ -1,0 +1,31 @@
+/* H1 */
+
+/* H2 */
+.default-h2 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.medium-h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* H3 */
+.default-h3 {
+  font-size: 30px;
+}
+
+/* H4 */
+.default-h4 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* H5 */
+/* H6 */
+/* A */
+.no-format-link {
+  text-decoration: none;
+  color: #0180f0;
+}

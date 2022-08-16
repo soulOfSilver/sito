@@ -2,8 +2,9 @@ import { Wrapper, Intro } from "./style";
 import "../../standardStyle.css";
 import { useState, useEffect } from "react";
 import { fb } from "../../firebase";
-import Menu from "../Menu/Menu";
 import SquareVisualizer from "./SquareVisualizer/SquareVisualizer";
+import "../../styles/fonts.css";
+import Header from "../Header/Header";
 
 const Homepage = () => {
   const [bloglist, setBloglist] = useState([]);
@@ -24,11 +25,10 @@ const Homepage = () => {
   return (
     <>
       <Wrapper>
-        <h1>A boring site</h1>
-        <Menu></Menu>
+        <Header />
         <div className="intro-background">
           <Intro>
-            <h2>Benvenuto su aboringsite.com</h2>
+            <h2 className="default-h2">Benvenuto su aboringsite.com</h2>
             <p>
               A Boring Site è il sito web di informazione che tratta di scienza
               e attualità, nato per combattere la concezione dell’informazione

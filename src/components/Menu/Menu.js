@@ -10,7 +10,7 @@ const Menu = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="_">Articoli</a>
+            <a href="/articles">Articoli</a>
           </li>
           <li>
             <a href="_">Podcast</a>

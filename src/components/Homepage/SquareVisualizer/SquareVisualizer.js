@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { Wrapper } from "./style";
 import { Link } from "react-router-dom";
+import "../../../standardStyle.css";
+import "../../../styles/divs.css";
+import "../../../styles/fonts.css";
+import "../../../styles/elements.css";
 
 const SquareVisualizer = ({ data }) => {
   const [articles, setArticles] = useState([]);
@@ -28,6 +32,11 @@ const SquareVisualizer = ({ data }) => {
   return (
     <>
       <Wrapper>
+        <div className="centered-div">
+          <h2 className="medium-h2">
+            Leggi gli ultimi articoli del nostro sito
+          </h2>
+        </div>
         {articles.map((article) => {
           if (!article) {
             return;
@@ -49,6 +58,14 @@ const SquareVisualizer = ({ data }) => {
             </div>
           );
         })}
+        <div className="centered-div">
+          <h3>
+            Non ti basta? Lasciati tentare dalla nostra collezione nella sezione
+            <a href="/articles" className="no-format-link fat-link">
+              articoli
+            </a>
+          </h3>
+        </div>
       </Wrapper>
     </>
   );
